@@ -2,18 +2,21 @@ import { useState, useEffect } from "react"
 import getData from './utils.js'
 
 const Parallel2 = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   
   useEffect(() => {
-    getData()
-      .then(data => setData(data))
+    setTimeout(() => {
+      getData()
+        .then(data => setData(data))
+    }, 5000)
   }, [])
 
   return (
     <>
-      <h2>Parallel 2</h2>
-      {
-        data.map( item => {
+      <h2>Parallel</h2>
+      { !data && <div className="loading"><span>Loading...</span></div>}
+      { 
+        data?.map( item => {
           return (
             <div key={item.id} className="episode-card">
               <h3>{item.name}</h3>

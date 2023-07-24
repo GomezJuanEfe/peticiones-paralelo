@@ -53,3 +53,15 @@ ul {
   list-style: none;
   text-align: left;
 }
+
+.loading {
+  animation: 0.5s linear 0s infinite alternate loading;
+}
+
+@keyframes loading {
+  from {
+    transform: scale(100%);
+  } to {
+    transform: scale(110%);
+  }
+}
